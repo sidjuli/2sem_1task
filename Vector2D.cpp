@@ -28,7 +28,7 @@ public:
 //сумма двух векторов
 	Vector2D operator+ (const Vector2D& v2){
 	    float a, b;
-      a = this->getX() + v2.x_x;
+            a = this->getX() + v2.x_x;
 	    b = this->getY() + v2.y_y;
 	    return Vector2D(a, b);
 	}
@@ -36,7 +36,7 @@ public:
 //разница двух векторов
   Vector2D operator- (const Vector2D& v2){
 	    float a, b;
-      a = this->getX() - v2.x_x;
+            a = this->getX() - v2.x_x;
 	    b = this->getY() - v2.y_y;
 	    return Vector2D(a, b);
 	}
