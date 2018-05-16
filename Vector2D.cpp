@@ -49,10 +49,10 @@ public:
 	}
 
 //произведение векторов
-  Vector2D operator* (const Vector2D& v2){
+  float operator* (const Vector2D& v2){
 	    float x = (this->getX()) * v2.x_x;
 	    float y = (this->getY()) * v2.y_y;
-	    return Vector2D(x, y);
+	    return (x + y);
 	}
 	friend ostream& operator<<(ostream& os, Vector2D& v);
 
