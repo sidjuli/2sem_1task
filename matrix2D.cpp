@@ -1,4 +1,5 @@
 #include <iostream>
+#include "Vector2D.cpp"
 using namespace std;
 
 class Matrix2D
@@ -81,6 +82,12 @@ public:
         v.d = this->c * m.b + this->d * m.d;
         return v;
     }
+    Vector operator* (const Vector v)
+    {
+        double a = this->a * v.getX() + this->b * v.getY();
+        double b = this->c * v.getX() + this->d * v.getY();
+        return Vector (a, b);
+    } 
 
     float determinant ();
     void print (Matrix2D m);
