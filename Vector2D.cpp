@@ -12,10 +12,12 @@ public:
 		x_x=x;
 		y_y=y;
 		}
-	float getX(){
+	float getX() const
+	{
 		return x_x;
 	}
-	float getY(){
+	float getY() const
+	{
 		return y_y;
 	}
 	void setX(float x){
