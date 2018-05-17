@@ -56,7 +56,7 @@ public:
 	    float y = (this->getY()) * v2.y_y;
 	    return (x + y);
 	}
-	friend ostream& operator<<(ostream& os, Vector2D& v);
+	friend ostream& operator<<(ostream& os, const Vector2D& v);
 
 private:
 	float x_x, y_y;
@@ -64,7 +64,7 @@ private:
 
 };
 //вывод вектора в формате (1;1)
-ostream& operator<<(ostream& os, Vector2D& v){
+ostream& operator<<(ostream& os, const Vector2D& v){
 	os<<"(" << v.getX() <<"; "<< v.getY()<<")";
 	return os;
 }
