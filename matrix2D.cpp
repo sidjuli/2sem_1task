@@ -82,11 +82,11 @@ public:
         v.d = this->c * m.b + this->d * m.d;
         return v;
     }
-    Vector operator* (const Vector v)
+    Vector2D operator* (const Vector2D v)
     {
         double a = this->a * v.getX() + this->b * v.getY();
         double b = this->c * v.getX() + this->d * v.getY();
-        return Vector (a, b);
+        return Vector2D (a, b);
     } 
 
     float determinant ();
