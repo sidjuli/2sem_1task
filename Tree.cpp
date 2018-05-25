@@ -17,6 +17,15 @@ public:
         right = NULL;
 	}
 
+	~Tree()
+	{
+	    if (this ->left)
+            delete this->left->right;
+
+	    if (this ->right)
+            delete this->right->left;
+	}
+	
     void insert (int value)
     {
         Tree *a = this;
