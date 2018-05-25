@@ -47,7 +47,7 @@ public:
         this->d = D;
     }
 
-    Matrix2D add (Matrix2D m){
+    Matrix2D operator+ (Matrix2D m){
     Matrix2D v;
         v.a = this->a + m.a;
         v.b = this->b + m.b;
@@ -56,7 +56,7 @@ public:
         return v;
     }
 
-    Matrix2D subtract (Matrix2D m){
+    Matrix2D operator- (Matrix2D m){
         Matrix2D v;
         v.a = this->a - m.a;
         v.b = this->b - m.b;
@@ -65,7 +65,7 @@ public:
         return v;
     }
 
-    Matrix2D multiply (float n){
+    Matrix2D operator* (float n){
         Matrix2D v;
         v.a = this->a * n;
         v.b = this->b * n;
@@ -74,7 +74,7 @@ public:
         return v;
     }
 
-    Matrix2D matrix_multiply (Matrix2D m){
+    Matrix2D operator*(Matrix2D m){
         Matrix2D v;
         v.a = this->a * m.a + this->b * m.c;
         v.b = this->a * m.b + this->b * m.d;
@@ -87,17 +87,22 @@ public:
         double a = this->a * v.getX() + this->b * v.getY();
         double b = this->c * v.getX() + this->d * v.getY();
         return Vector2D (a, b);
-    } 
+    }
 
-    float determinant ();
-    void print (Matrix2D m);
+    float determinant ()
+    {
+        return this->a * this -> d - this->b * this->c;
+    }
+    friend ostream& operator<< (ostream &os, Matrix2D m)
+    {
+        os << "|" << m.getA() << " " << m.getB() << "|" << endl << "|" << m.getC() << " " << m.getD() << "|" <<endl;
+        return os;
+    }
+    friend Matrix2D operator* (int n, Matrix2D& m){
+        m.a = m.a * n;
+        m.b = m.b * n;
+        m.c = m.c * n;
+        m.d = m.d * n;
+        return m;
+}
 };
-void Matrix2D::print(Matrix2D v)
-{
-    cout << "||" << v.a << " " << v.b << "||" << endl << "||" << v.c << " " << v.d << "||";
-}
-
-float Matrix2D::determinant()
-{
-    return this->a * this -> d - this->b * this->c;
-}
